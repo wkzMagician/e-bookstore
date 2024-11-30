@@ -26,17 +26,23 @@ public class Book implements Serializable {
     @Column(name = "price")
     private Integer price;
 
-    @Column(name = "category")
-    private String category;
-
-    @Column(name = "description")
-    private String description;
+    @Column(name = "inventory")
+    private Integer inventory;
 
     @Column(name = "ISBN")
     private String ISBN;
 
-    @Column(name = "inventory")
-    private Integer inventory;
+    // neo4j
+
+    @Column(name = "category")
+    private String category;
+
+    // mongodb
+//    @Column(name = "description")
+    @Transient
+    private String description;
+
+
 
     public Book(Long id) {
         this.id = id;

@@ -3,19 +3,22 @@ CREATE DATABASE bookstore;
 USE bookstore;
 
 DROP TABLE IF EXISTS `book`;
-CREATE TABLE `book` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `cover` varchar(45) DEFAULT NULL,
-  `title` varchar(45) DEFAULT NULL,
-  `author` varchar(45) DEFAULT NULL,
-  `price` INTEGER DEFAULT NULL,
-  `category` varchar(45) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `ISBN` char(13) DEFAULT NULL,
-  `inventory` int DEFAULT 0,
-  PRIMARY KEY (`id`)
-    CREATE INDEX `idx_book_title_author_category` ON `book` (`title` ASC, `author` ASC, `category` ASC);
+CREATE TABLE `book`
+(
+    `id`        int NOT NULL AUTO_INCREMENT,
+    `cover`     varchar(45) DEFAULT NULL,
+    `title`     varchar(45) DEFAULT NULL,
+    `author`    varchar(45) DEFAULT NULL,
+    `price`     INTEGER     DEFAULT NULL,
+    `category`  varchar(45) DEFAULT NULL,
+--   `description` text DEFAULT NULL,
+    `ISBN`      char(13)    DEFAULT NULL,
+    `inventory` int         DEFAULT 0,
+    PRIMARY KEY (`id`)
 );
+
+CREATE INDEX `idx_book_title_author_category` ON `book` (`title` ASC, `author` ASC, `category` ASC);
+
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (

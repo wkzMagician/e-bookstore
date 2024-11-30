@@ -29,6 +29,8 @@ spring:
       port: 6379
       password: ""
       timeout: 300
+    mongodb:
+      uri: mongodb://localhost:27017/bookstore
 
 eureka:
   instance:
@@ -41,3 +43,5 @@ eureka:
       defaultZone: http://localhost:8040/eureka
 server:
   port: 11230
+
+# MongoDB

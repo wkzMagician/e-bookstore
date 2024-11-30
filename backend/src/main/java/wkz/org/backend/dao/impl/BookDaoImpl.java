@@ -1,6 +1,7 @@
 package wkz.org.backend.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Repository;
 import wkz.org.backend.controllers.BookController;
 import wkz.org.backend.dao.BookDao;
 import wkz.org.backend.entity.Book;
+import wkz.org.backend.entity.BookDescription;
+import wkz.org.backend.repository.BookDescriptionRepository;
 import wkz.org.backend.repository.BookRepository;
 
 import java.util.List;
@@ -28,13 +31,27 @@ public class BookDaoImpl implements BookDao {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private BookDescriptionRepository bookDescriptionRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 
     @Cacheable(value = "book", key = "#id")
     public Book findOne(Long id) {
+        System.out.println("dao findOne");
         logger.info("...Fetching without cache: " + id);
 
-        return bookRepository.findById(id).orElse(null);
+//        return bookRepository.findById(id).orElse(null);
+
+        Book book = bookRepository.findById(id).orElse(null);
+        if(book != null){
+            Optional<BookDescription> bookDescription = bookDescriptionRepository.findById(id);
+					bookDescription.ifPresent(
+							description -> book.setDescription(description.getDescription()));
+          System.out.println("bookDescription: " + book.getDescription());
+        }
+
+        return book;
     }
 
     public Page<Book> findAll(Pageable pageable) {
@@ -109,11 +126,18 @@ public class BookDaoImpl implements BookDao {
     @CacheEvict(value = "book", key = "#book.id")
     public void save(Book book) {
         bookRepository.save(book);
+        // 构造BookDescription
+
+        Long id = book.getId();
+        String description = book.getDescription();
+        BookDescription bookDescription = new BookDescription(id, description);
+        bookDescriptionRepository.save(bookDescription);
     }
 
     @CacheEvict(value = "book", key = "#id")
     public void delete(Long id) {
         bookRepository.deleteById(id);
 
+        bookDescriptionRepository.deleteById(id);
     }
 }

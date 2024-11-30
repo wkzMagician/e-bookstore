@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getBookById(Long bookId) {
-
+        System.out.println("service getBookById");
         return bookDao.findOne(bookId);
     }
 
