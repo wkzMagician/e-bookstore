@@ -10,22 +10,22 @@ INSERT INTO `user_auth` VALUES
 (3,'123456');
 
 INSERT INTO `book` VALUES
-(1,'bookImage/1.jpg','神经网络与机器学习','（美）Simon Haykin',7200,'计算机科学与技术', '9787111324133', 100),
-(2,'bookImage/2.jpg','现代软件工程','（美）Steve McConnell',8900,'计算机科学与技术', '9787111674641', 100),
-(3,'bookImage/3.jpg','Java语言程序设计','（美）James Gosling',5600,'计算机科学与技术', '9787111506904', 100),
-(4,'bookImage/4.jpg','云计算','（美）Michael Miller',9800,'计算机科学与技术', '9787111461340', 100),
-(5,'bookImage/5.jpg','基于EEG的脑机设计','（美）Jonathan Wolpaw',6700,'计算机科学与技术', '9787111694533', 100),
-(6,'bookImage/6.jpg','机器学习','（美）Tom M. Mitchell',5200,'计算机科学与技术', '9787111692577', 100),
-(7,'bookImage/7.jpg','概率数据结构预算法','（美）Michael Mitzenmacher',7600,'计算机科学与技术', '9787111127482', 100),
-(8,'bookImage/8.jpg','计算机网络 自顶向下分解','（美）James F. Kurose',6100,'计算机科学与技术', '9787111127483', 100),
-(9,'bookImage/9.jpg','TCP/IP详解','（美）W. Richard Stevens',9300,'计算机科学与技术', '9787111127485', 100),
-(10,'bookImage/10.jpg','深入了解计算机系统','（美）Randal E. Bryant',8400,'计算机科学与技术', '9787111127486', 100),
-(11,'bookImage/11.jpg','计算机组成原理','（美）David A. Patterson',6900,'���算机科学与技术', '9787111127488', 100),
-(12,'bookImage/12.jpg','数据库系统','（美）Hector Garcia-Molina',7800,'计算机科学与技术', '9787111127489', 100),
-(13,'bookImage/13.jpg','嵌入式系统','（美）Raj Kamal',7100,'计算机科学与技术', '9787111127582', 100),
-(14,'bookImage/14.jpg','操作系统概念','（美）Abraham Silberschatz',9100,'计算机科学与技术', '9787111127682', 100),
-(15,'bookImage/15.jpg','数据挖掘导论','（美）Michael Steinbach',6500,'计算机科学与技术', '9787111127782', 100),
-(16,'bookImage/16.jpg','离散数学及其应用','（美）Kenneth H. Rosen',8700,'计算机科学与技术', '9787111127982', 100);
+(1,'bookImage/1.jpg','神经网络与机器学习','（美）Simon Haykin',7200,'神经网络', '9787111324133', 100),
+(2,'bookImage/2.jpg','现代软件工程','（美）Steve McConnell',8900,'软件工程', '9787111674641', 100),
+(3,'bookImage/3.jpg','Java语言程序设计','（美）James Gosling',5600,'Java', '9787111506904', 100),
+(4,'bookImage/4.jpg','云计算','（美）Michael Miller',9800,'云计算', '9787111461340', 100),
+(5,'bookImage/5.jpg','基于EEG的脑机设计','（美）Jonathan Wolpaw',6700,'脑机接口', '9787111694533', 100),
+(6,'bookImage/6.jpg','机器学习','（美）Tom M. Mitchell',5200,'机器学习', '9787111692577', 100),
+(7,'bookImage/7.jpg','概率数据结构预算法','（美）Michael Mitzenmacher',7600,'数据结构与算法', '9787111127482', 100),
+(8,'bookImage/8.jpg','计算机网络 自顶向下分解','（美）James F. Kurose',6100,'计算机网络', '9787111127483', 100),
+(9,'bookImage/9.jpg','TCP/IP详解','（美）W. Richard Stevens',9300,'TCP/IP', '9787111127485', 100),
+(10,'bookImage/10.jpg','深入了解计算机系统','（美）Randal E. Bryant',8400,'计算机系统', '9787111127486', 100),
+(11,'bookImage/11.jpg','计算机组成原理','（美）David A. Patterson',6900,'计算机系统', '9787111127488', 100),
+(12,'bookImage/12.jpg','数据库系统','（美）Hector Garcia-Molina',7800,'数据', '9787111127489', 100),
+(13,'bookImage/13.jpg','嵌入式系统','（美）Raj Kamal',7100,'嵌入式系统', '9787111127582', 100),
+(14,'bookImage/14.jpg','操作系统概念','（美）Abraham Silberschatz',9100,'操作系统', '9787111127682', 100),
+(15,'bookImage/15.jpg','数据挖掘导论','（美）Michael Steinbach',6500,'数据', '9787111127782', 100),
+(16,'bookImage/16.jpg','离散数学及其应用','（美）Kenneth H. Rosen',8700,'离散数学', '9787111127982', 100);
 
 INSERT INTO `order` VALUES
 (1,2,'2020-06-01 12:00:00', 10000),

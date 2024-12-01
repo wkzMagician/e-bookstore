@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookDao {
     Book findOne(Long id);
 
-    List<Book> findByCategory(String category);
+    List<Book> findByCategory(String category, Pageable pageable);
 
     Page<Book> findAll(Pageable pageable);
 

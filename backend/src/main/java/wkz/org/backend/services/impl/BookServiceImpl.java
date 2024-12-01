@@ -40,6 +40,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> findByCategory(String category) {
+        Pageable pageable = PageRequest.of(0, PAGE_SIZE);
+        return bookDao.findByCategory(category, pageable);
+    }
+
+    @Override
     public void checkBookInventory(Long bookId, Integer quantity) {
         Book book = bookDao.findOne(bookId);
         if (book.getInventory() < quantity) {

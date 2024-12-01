@@ -1,5 +1,6 @@
 package wkz.org.booktitle2author.controller;
 
+import com.alibaba.fastjson2.JSON;
 import jakarta.ws.rs.QueryParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,6 @@ public class BookController {
 
 	@GetMapping("/")
 	public String title2author(@QueryParam("title") String title) {
-		return bookDao.getTitle2Author(title).toString();
+		return JSON.toJSONString(bookDao.getTitle2Author(title));
 	}
 }

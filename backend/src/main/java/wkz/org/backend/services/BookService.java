@@ -15,6 +15,8 @@ public interface BookService {
 
     List<Book> findByBookNameContaining(String bookName);
 
+    List<Book> findByCategory(String category);
+
     void checkBookInventory(Long bookId, Integer quantity);
 
     void updateInventory(JSONArray orderInfo);

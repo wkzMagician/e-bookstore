@@ -10,4 +10,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     // 根据书名查找书籍
     Page<Book> findByTitleContaining(String bookName, Pageable pageable);
+
+    // 根据类别
+    Page<Book> findByCategory(String category, Pageable pageable);
 }

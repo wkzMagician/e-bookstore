@@ -49,6 +49,29 @@ public class BookController {
         return NetworkUtil.response("ok","书籍查询成功", books);
     }
 
+    @GetMapping("/book/category")
+    public String category(@RequestParam String content) {
+        logger.info("...Fetching book by category: " + content);
+        long startTime = System.currentTimeMillis();
+
+        // 从数据库查找书籍信息
+        List<Book> books;
+        try{
+            books = bookService.findByCategory(content);
+        }catch (Exception e){
+            e.printStackTrace();
+            return NetworkUtil.response("error", "查找书籍失败");
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time: " + (endTime - startTime) + "ms");
+        logger.info("...Got book by category: " + content);
+
+        // 格式: {code:, message:, data:[]}
+        return NetworkUtil.response("ok","书籍查询成功", books);
+    }
+
+
     @GetMapping("/book/{bookId}")
     public String getBookById(@PathVariable Long bookId) {
         logger.info("...Fetching book by id: " + bookId);

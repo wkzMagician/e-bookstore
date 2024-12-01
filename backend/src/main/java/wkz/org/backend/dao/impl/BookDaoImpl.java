@@ -18,10 +18,12 @@ import wkz.org.backend.controllers.BookController;
 import wkz.org.backend.dao.BookDao;
 import wkz.org.backend.entity.Book;
 import wkz.org.backend.entity.BookDescription;
+import wkz.org.backend.entity.Category;
 import wkz.org.backend.repository.BookDescriptionRepository;
 import wkz.org.backend.repository.BookRepository;
 
 import java.util.List;
+import wkz.org.backend.repository.CategoryRepository;
 
 @Repository
 public class BookDaoImpl implements BookDao {
@@ -33,6 +35,9 @@ public class BookDaoImpl implements BookDao {
 
     @Autowired
     private BookDescriptionRepository bookDescriptionRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 
@@ -87,8 +92,13 @@ public class BookDaoImpl implements BookDao {
 
     }
 
-    public List<Book> findByCategory(String category) {
-        return null;
+    public List<Book> findByCategory(String category, Pageable pageable) {
+        List<Category> categories = categoryRepository.findWithinTwoSubCategories(category);
+        List<Book> books = new ArrayList<>();
+        for (Category c : categories) {
+            books.addAll(bookRepository.findByCategory(c.getTag(), pageable).getContent());
+        }
+        return books;
     }
 
     public List<Book> findByBookNameContaining(String bookName, Pageable pageable) {

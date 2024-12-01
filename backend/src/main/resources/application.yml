@@ -22,6 +22,12 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: wukunzhen
+
   data:
     redis:
       database: 0
@@ -44,4 +50,3 @@ eureka:
 server:
   port: 11230
 
-# MongoDB
